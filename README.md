@@ -1,2 +1,2 @@
 # Pokemon
-JavaScript-based Pokemon game to practice Backbone/Marionette
+Python-based Pokemon game
