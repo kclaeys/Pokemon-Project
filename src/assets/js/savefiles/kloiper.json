@@ -1,0 +1,13 @@
+{
+    'kloiper': {
+        'pokemon': {
+            'pc': {},
+            'party': {}
+        },
+        'profile': {
+            'badges': [],
+            'money': 0
+        },
+        'bag': {}
+    }
+}
