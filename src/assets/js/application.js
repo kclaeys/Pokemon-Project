@@ -1,15 +1,16 @@
-GameApp = Marionette.Application.extend({
-    
+GameApp = Backbone.Marionette.Application.extend({
+    "class": "GameApp",
+    initialize: function (options) {
+
+    },
+    regions: {
+        "menuRegion": "#menu-region",
+        "screenWrapperRegion": "#screen-wrapper-region"
+    },
+    onStart: function () {
+        console.log("GameApp has started!");
+        Game.Menu.Functions.initializeLayout();
+    }
 });
 
-var GameApp = new GameApp();
-
-GameApp.addRegions({
-    appRegion: "#app-container"
-});
-
-GameApp.on("start", function () {
-    console.log("GameApp has started!");
-});
-
-GameApp.start();
+var Game = new GameApp();
