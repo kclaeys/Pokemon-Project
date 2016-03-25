@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Pokemon</title>
+        <link href="./assets/css/application.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="main-region" class="app-container">
+            <div id="menu-region"></div>
+            <div id="screen-wrapper-region"></div>
+        </div>
+        <div id="shadow"></div>
+
+        <!-- templates -->
+        <script id="menu-template" type="text/template">
+            <div class="menu">
+                <div class="menu-text">
+                    <h1 class="menu-text-title">Pokemon Game</h1>
+                    <div class="menu-text-details">Pokemon v0.0</div>
+                </div>
+                <div class="menu-credits">Keith Claeys  |  2016</div>
+                <div id="menu-start-buttons">
+                    <div id="load-game-button"></div>
+                    <div id="new-game-button"></div>
+                </div>
+            </div>
+        </script>
+        <script id="start-button-template" type="text/template">
+            <button class="start-button"></button>
+        </script>
+        <script id="screen-wrapper-template" type="text/template">
+            <div class="screen-region">
+                <div id="screen-region"></div>
+            </div>
+        </script>
+        <script id="screen-cell-view-template" type="text/template">
+            <div class="screen-cell"></div>
+        </script>
+
+        <!-- depenencies -->
+        <script src="./assets/js/vendor/jquery.js"></script>
+        <script src="./assets/js/vendor/json2.js"></script>
+        <script src="./assets/js/vendor/underscore.js"></script>
+        <script src="./assets/js/vendor/backbone.js"></script>
+        <script src="./assets/js/vendor/backbone.marionette.js"></script>
+
+        <!-- my scripts -->
+        <script type="text/javascript" src="./assets/js/application.js"></script>
+        <script type="text/javascript" src="./assets/js/application.Menu.js"></script>
+        <script type="text/javascript" src="./assets/js/application.Screen.js"></script>
+        <script type="text/javascript" src="./assets/js/application.GlobalVars.js"></script>
+        <script type="text/javascript" src="./assets/js/worldAreas/baseArea.js"></script>
+
+        <script type="text/javascript">Game.start();</script>
+    </body>
+</html>

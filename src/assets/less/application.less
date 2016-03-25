@@ -1,0 +1,110 @@
+// Import Bootstrap
+@import "bootstrap/bootstrap.less";
+
+// Personal Variables
+@screenSize: 375px;
+@cellsPerSide: 15;
+@cellSize: @screenSize / @cellsPerSide;
+@terrain-P: #F0E68C;
+@terrain-G: #228B22;
+@terrain-O: #000000;
+@terrain-W: #00008B;
+@terrain-R: #835C3B;
+@terrain-B: #444444;
+@terrain-D: #A9A9A9;
+@terrain-T: #FFFFFA;
+
+// Overarching styling
+body {
+	padding: 30px;
+	font-size: 16px;
+}
+
+.terrain {
+	&-P { background-color: @terrain-P; } // Path
+	&-G { background-color: @terrain-G; } // Grass
+	&-O { background-color: @terrain-O; } // Offscreen
+	&-W { background-color: @terrain-W; } // Water
+	&-R { background-color: @terrain-R; } // Rock
+	&-B { background-color: @terrain-B; } // Building
+	&-D { background-color: @terrain-D; } // Door
+	&-T { background-color: @terrain-T; } // Tile
+}
+
+.cellPositionY (@index, @index2) when (@index2 < @cellsPerSide) {
+	.cellPos@{index}-@{index2} {
+		left: @index * @cellSize;
+		top: @index2 * @cellSize;
+	}
+	.cellPositionY(@index, @index2 + 1);
+}
+.cellPositionX (@index) when (@index < @cellsPerSide) {
+	.cellPositionY(@index, 0);
+	.cellPositionX(@index + 1);
+}
+.cellPositionX(0);
+
+
+
+
+////////////////////////////////////////////////////////////////////////// MENU
+#menu {
+	&-region { margin: 30px auto 70px; }
+}
+
+.title { text-align: center; }
+
+.menu {
+	text-align: center;
+	&-credits {
+		position: fixed;
+		bottom: 12px;
+		left: 12px;
+		line-height: 16px;
+	}
+	&-text { margin-bottom: 10px; }
+	button.start-button {
+		margin: 5px 0;
+		padding: 5px;
+		width: 100px;
+	}
+}
+
+
+
+//////////////////////////////////////////////////////////////////////// SCREEN
+#screen-wrapper{
+	&-region { margin: 0 auto 70px; }
+}
+
+.screen {
+	&-region {
+		width: @screenSize;
+		height: @screenSize;
+		margin: auto;
+		background-color: black;
+		z-index: 2;
+	}
+	&-cell {
+		width: @cellSize;
+		height: @cellSize;
+		position: absolute;
+
+		&.hasCharacter {
+			background-color: red;
+		}
+	}
+}
+
+
+/////////////////////////////////////////////////////////////////////// THEATER
+#shadow {
+	z-index: -1;
+	background-color: black;
+	opacity: 0.7;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 0;
+}

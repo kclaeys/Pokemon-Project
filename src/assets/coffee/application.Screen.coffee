@@ -45,11 +45,11 @@ do () ->
                     when 37 # LEFT
                         if @.characterPlacement.x > 0 then @.throttledUCP -1, 0
                     when 38 # UP
-                        if @.characterPlacement.y < CELLSPERSIDE then @.throttledUCP 0, -1
+                        if @.characterPlacement.y > 0 then @.throttledUCP 0, -1
                     when 39 # RIGHT
-                        if @.characterPlacement.y > 0 then @.throttledUCP 1, 0
+                        if @.characterPlacement.x < CELLSPERSIDE - 1 then @.throttledUCP 1, 0
                     when 40 # DOWN
-                        if @.characterPlacement.x < CELLSPERSIDE then @.throttledUCP 0, 1
+                        if @.characterPlacement.y < CELLSPERSIDE - 1 then @.throttledUCP 0, 1
             return
         setCharacterInitial: () ->
             @.throttledUCP 0, 0
